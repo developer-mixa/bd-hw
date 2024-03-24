@@ -1,41 +1,20 @@
-# Website
+@Created by Mixail "The unreal developer" Tarasov
 
-[This website](https://sirius-db-dev.github.io/db-docs/) is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+--Домашнее задание по бд
 
-### Installation
+Фильмы и кинотеатры:
 
-```
-$ yarn
-```
+    в кинотеатре в прокате может быть несколько фильмов
+    фильм может быть в прокате в нескольких кинотеатрах
+    кинотеатр - название, адрес
+    фильм - название, описание, рейтинг
 
-### Local Development
+Кинотеатры, фильмы и билеты:
 
-```
-$ yarn start
-```
+    билет привязан к фильму и кинотеатру
+    билет - цена, время, место
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+CRUD для фильмов
 
-### Build
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+--Инструкция: написать docker compose up, и он запуститься локально
