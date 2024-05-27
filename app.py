@@ -6,6 +6,7 @@ from psycopg2.sql import SQL, Literal
 from dotenv import load_dotenv
 import os
 
+
 load_dotenv()
 
 
@@ -124,6 +125,41 @@ def delete_actor():
         return '', 404
 
     return '', 204
+
+
+@app.get('/films/find_by_name')
+def get_film_by_name():
+    name = request.args.get('name')
+
+    query = SQL("""
+select *
+from api_data.film
+where name ilike {name}
+""").format(name=Literal('%' + name + '%'))
+
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+    return result
+
+
+@app.get('/films/find_by_rating')
+def get_film_by_rating():
+    rating = request.args.get('rating')
+
+    query = SQL("""
+select *
+from api_data.film
+where rating = {rating}
+""").format(rating=Literal(rating))
+
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+    return result
+
 
 if __name__ == '__main__':
     app.run(port=os.getenv('FLASK_PORT'))
